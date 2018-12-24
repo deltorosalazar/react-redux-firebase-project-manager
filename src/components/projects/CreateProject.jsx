@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from '../../assets/login-icon.svg'
 import './styles.scss'
 import { Form, Input, Button } from 'reactstrap'
 
@@ -32,7 +31,7 @@ class CreateProject extends Component {
           <Input
             type="textarea"
             name="content"
-            placeholder="content"
+            placeholder="Content"
             onChange={this.handleChange}
           />
           <Button
