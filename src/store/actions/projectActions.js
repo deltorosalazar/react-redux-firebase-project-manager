@@ -1,8 +1,29 @@
 export const createProject = (project) => {
-  return (dispatch, getState) => {
-    dispatch({
-      type: 'CREATE_PROJECT',
-      payload: project
+  return (dispatch, getState, {
+    getFirebase,
+    getFirestore
+  }) => {
+    const firestore = getFirestore()
+
+    firestore.collection('projects').add({
+      ...project,
+      authorFirstName: 'Manuel',
+      authorLastName: 'Del Toro',
+      authorId: '12345',
+      createdAt: new Date()
+    }).then(res => {
+      console.log(res);
+
+      dispatch({
+        type: 'CREATE_PROJECT',
+        payload: project
+      })
+    }).catch(err => {
+      dispatch({
+        type: 'CREATE_PROJECT_ERROR',
+        payload: err
+      })
     })
+
   }
 }
