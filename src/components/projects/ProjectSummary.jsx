@@ -8,15 +8,12 @@ import {
   CardText
 } from 'reactstrap'
 
-const ProjectSummary = () => {
+const ProjectSummary = ({ project }) => {
   return (
     <Card className="mb-4">
-      <CardHeader>Header</CardHeader>
+      <CardHeader>{project.title}</CardHeader>
       <CardBody>
-        <CardTitle>Special Title Treatment</CardTitle>
-        <CardText>
-          With supporting text below as a natural lead-in to additional content.
-        </CardText>
+        <CardText>{project.content}</CardText>
         <Button>Go somewhere</Button>
       </CardBody>
     </Card>
